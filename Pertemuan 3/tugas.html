@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Pendaftaran</title>
+  <style>
+    .form-container {
+      border: 2px solid black;   
+      width: 400px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 120px 1fr; 
+      grid-row-gap: 5px;               
+      align-items: center;
+    }
+    .form-container label {
+      text-align: left;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container select {
+      width: 200px; 
+    }
+    .form-actions {
+      grid-column: span 2; 
+      text-align: left;    
+    }
+  </style>
+</head>
+<body>
+  <h2>Form Pendaftaran</h2>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <div class="form-container">
+      
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+
+      <label>Jenis Kelamin:</label>
+      <div>
+        <input type="radio" id="laki" name="gender" value="Laki-laki">
+        <label for="laki">Laki-laki</label>
+        <input type="radio" id="perempuan" name="gender" value="Perempuan">
+        <label for="perempuan">Perempuan</label>
+      </div>
+
+      <label>Hobi:</label>
+      <div>
+        <input type="checkbox" id="musik" name="hobi" value="Musik">
+        <label for="musik">Musik</label>
+        <input type="checkbox" id="olahraga" name="hobi" value="Olahraga">
+        <label for="olahraga">Olahraga</label>
+      </div>
+
+      <label for="kota">Pilih Kota:</label>
+      <select id="kota" name="kota">
+        <option value="Jakarta">Jakarta</option>
+        <option value="Bandung">Bandung</option>
+        <option value="Surabaya">Surabaya</option>
+        <option value="Yogyakarta">Yogyakarta</option>
+      </select>
+
+      <label for="foto">Upload Foto:</label>
+      <input type="file" id="foto" name="foto">
+
+      <div class="form-actions">
+        <button type="submit">Daftar</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
