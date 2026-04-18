@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Alat Tulis</title>
+</head>
+<body>
+        <div class="container">
+        <header class="header">
+            <h1>Formulir Pemesanan</h1>
+            <p class="subtitle">
+                Silakan isi data diri Anda untuk memesan alat tulis
+            </p>
+        </header>
+    <h1>Pemesanan Alat Tulis</h1>
+    
+    <form action="uts.php" method="POST">
+        <fieldset>
+            <legend>Data Mahasiswa</legend>
+            
+            <div>
+                <label for="nama">Nama Mahasiswa *</label><br>
+                <input type="text" id="nama" name="nama" required minlength="3" maxlength="50" placeholder="Nama lengkap">
+            </div>
+            
+            <div>
+                <label for="nim">NIM *</label><br>
+                <input type="text" id="nim" name="nim" required minlength="8" maxlength="12" placeholder="Nomor identitas mahasiswa">
+            </div>
+            
+            <div>
+                <label for="email">Email *</label><br>
+                <input type="email" id="email" name="email" required placeholder="email@example.com">
+            </div>
+            
+            <div>
+                <label for="layanan">Jenis Layanan *</label><br>
+                <select id="layanan" name="layanan" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="Reguler">Reguler (Gratis)</option>
+                    <option value="Prioritas">Prioritas (Rp 10.000)</option>
+                </select>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Pilihan Barang *</legend>
+
+            <div>
+                <input type="checkbox" id="pulpen" name="barang[]" value="Pulpen">
+                <label for="pulpen">Pulpen 1 Pack- Rp 15.000</label><br>
+                <label for="qty_pulpen">Jumlah:</label>
+                <input type="number" id="qty_pulpen" name="qty_pulpen" value="0" min="0" max="100">
+            </div>
+            
+            <br>
+            
+            <div>
+                <input type="checkbox" id="pensil" name="barang[]" value="Pensil">
+                <label for="pensil">Pensil 1 Pack- Rp 12.000</label><br>
+                <label for="qty_pensil">Jumlah:</label>
+                <input type="number" id="qty_pensil" name="qty_pensil" value="0" min="0" max="100">
+            </div>
+
+            <br>
+
+            <div>
+                <input type="checkbox" id="penghapus" name="barang[]" value="Penghapus">
+                <label for="penghapus">Penghapus - Rp 5.000</label><br>
+                <label for="qty_penghapus">Jumlah:</label>
+                <input type="number" id="qty_penghapus" name="qty_penghapus" value="0" min="0" max="100">
+        </fieldset>
+        
+        <br>
+        
+        <button type="submit">Pesan</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
+<html>
+<head>
+    <title>Form Pemesanan Alat Tulis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            color: #666;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-item {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</html>

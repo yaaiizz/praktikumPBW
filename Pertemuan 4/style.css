@@ -1,0 +1,408 @@
+/* ============================================
+   RESET & GENERAL
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #9c1328;
+    --secondary-red: #d73e3e;
+    --text-dark: #2c3e50;
+    --text-gray: #7f8c8d;
+    --bg-light: #ECF0F1;
+    --border-gray: #bdc3c7;
+    --success: #27ae60;
+    --radius: 6px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+/* ============================================
+   WRAPPER & LAYOUT
+   ============================================ */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+header {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+nav {
+    background-color: var(--secondary-red);
+    padding: 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0;
+}
+
+.nav-list li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-list li a:hover {
+    background-color: var(--primary-red);
+    border-bottom: 3px solid white;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    gap: 30px;
+    flex: 1;
+}
+
+/* ============================================
+   CONTENT SECTION
+   ============================================ */
+
+.content {
+    flex: 2;
+}
+
+.form-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    color: var(--primary-red);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    border-bottom: 3px solid var(--secondary-red);
+    padding-bottom: 10px;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item {
+    margin-bottom: 20px;
+}
+
+.form-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-item input[type="text"],
+.form-item input[type="email"],
+.form-item input[type="password"],
+.form-item select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-gray);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-item input[type="text"]:focus,
+.form-item input[type="email"]:focus,
+.form-item input[type="password"]:focus,
+.form-item select:focus {
+    outline: none;
+    border-color: var(--secondary-red);
+    box-shadow: 0 0 0 3px rgba(215, 62, 62, 0.1);
+}
+
+/* Radio & Checkbox */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-group > div,
+.checkbox-group > div {
+    display: flex;
+    align-items: center;
+}
+
+.form-item input[type="radio"],
+.form-item input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.form-item input[type="radio"] + label,
+.form-item input[type="checkbox"] + label {
+    display: inline;
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(156, 19, 40, 0.2);
+    align-self: flex-start;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(156, 19, 40, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.sidebar {
+    flex: 1;
+    background-color: white;
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.sidebar h2 {
+    color: var(--primary-red);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--secondary-red);
+    padding-bottom: 8px;
+}
+
+.sidebar p {
+    color: var(--text-gray);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-list li {
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.sidebar-list li a {
+    color: var(--secondary-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 8px 0;
+    border-left: 3px solid transparent;
+    padding-left: 10px;
+}
+
+.sidebar-list li a:hover {
+    border-left-color: var(--secondary-red);
+    color: var(--primary-red);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    background-color: var(--primary-red);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid var(--secondary-red);
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .nav-list li a {
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .content,
+    .sidebar {
+        flex: 1;
+    }
+
+    .form-section,
+    .sidebar {
+        padding: 20px;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .btn-submit {
+        width: 100%;
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px 15px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 15px 10px;
+    }
+
+    .form-section,
+    .sidebar {
+        padding: 15px;
+    }
+
+    .form-item label {
+        font-size: 0.95rem;
+    }
+
+    .form-item input,
+    .form-item select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #BDC3C7;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2C3E50;
+    color: white;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #db343f;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980B9;
+    transform: scale(1.1);
+}

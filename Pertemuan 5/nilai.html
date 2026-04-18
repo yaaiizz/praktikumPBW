@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Nilai Mahasiswa</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .score-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .score-container h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .score-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-item {
+            margin-bottom: 20px;
+        }
+
+        .form-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-item input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-item input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-container {
+            margin-top: 25px;
+        }
+
+        .score-button {
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .score-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .score-button:active {
+            transform: translateY(0);
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            font-size: 1.1rem;
+        }
+
+        .result-item .label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .result-item .value {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .grade-a {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .grade-b {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .grade-c {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .grade-d {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        .grade-e {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .grade-invalid {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 10px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .score-container {
+                padding: 25px;
+            }
+
+            .score-container h2 {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+
+            .result-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="score-container">
+        <h2>Cek Nilai Mahasiswa</h2>
+
+        <form class="score-form" onsubmit="cekNilai(event)">
+            <div class="form-item">
+                <label for="nama">Nama Mahasiswa:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama" required>
+            </div>
+
+            <div class="form-item">
+                <label for="npm">NPM:</label>
+                <input type="text" id="npm" name="npm" placeholder="Masukkan NPM" required>
+            </div>
+
+            <div class="form-item">
+                <label for="nilai">Nilai:</label>
+                <input type="number" id="nilai" name="nilai" placeholder="Masukkan nilai (0-100)" min="0" max="100" required>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="score-button">Cek Nilai</button>
+            </div>
+        </form>
+
+        <div id="hasilContainer" class="result-section">
+            <div class="result-item">
+                <span class="label">Nama:</span>
+                <span class="value" id="hasilNama">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label">NPM:</span>
+                <span class="value" id="hasilNpm">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label">Nilai:</span>
+                <span class="value" id="hasilNilai">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label">Grade:</span>
+                <span id="hasilGrade">-</span>
+            </div>
+            <div id="errorMsg" class="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        function cekNilai(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const npm = document.getElementById("npm").value;
+            const nilai = parseInt(document.getElementById("nilai").value);
+            
+            const resultContainer = document.getElementById("hasilContainer");
+            const errorMsg = document.getElementById("errorMsg");
+            
+            errorMsg.style.display = "none";
+            let mutu;
+            let gradeClass;
+
+            // Validasi nilai
+            if (nilai < 0 || nilai > 100 || isNaN(nilai)) {
+                mutu = "Nilai tidak valid!";
+                gradeClass = "grade-invalid";
+                errorMsg.textContent = "Silakan masukkan nilai antara 0-100";
+                errorMsg.style.display = "block";
+            } 
+            else if (nilai >= 85) {
+                mutu = "A";
+                gradeClass = "grade-a";
+            } 
+            else if (nilai >= 70) {
+                mutu = "B";
+                gradeClass = "grade-b";
+            } 
+            else if (nilai >= 60) {
+                mutu = "C";
+                gradeClass = "grade-c";
+            } 
+            else if (nilai >= 50) {
+                mutu = "D";
+                gradeClass = "grade-d";
+            } 
+            else {
+                mutu = "E";
+                gradeClass = "grade-e";
+            }
+
+            // Update hasil
+            document.getElementById("hasilNama").textContent = nama;
+            document.getElementById("hasilNpm").textContent = npm;
+            document.getElementById("hasilNilai").textContent = nilai;
+            
+            const gradeElement = document.getElementById("hasilGrade");
+            gradeElement.textContent = mutu;
+            gradeElement.className = "grade-badge " + gradeClass;
+
+            // Tampilkan hasil
+            resultContainer.classList.add("show");
+        }
+    </script>
+</body>
+</html>

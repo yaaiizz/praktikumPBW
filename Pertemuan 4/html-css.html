@@ -1,0 +1,121 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Singaperbangsa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <h1>Selamat Datang di Website Singaperbangsa</h1>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Layanan</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Main Content -->
+            <main class="content">
+                <section class="form-section">
+                    <h2>Form Pendaftaran</h2>
+                    
+                    <form class="form">
+                        <!-- Nama -->
+                        <div class="form-item">
+                            <label for="nama">Nama:</label>
+                            <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-item">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-item">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                        </div>
+
+                        <!-- Jenis Kelamin -->
+                        <div class="form-item">
+                            <label>Jenis Kelamin:</label>
+                            <div class="radio-group">
+                                <div>
+                                    <input type="radio" id="laki" name="gender" value="Laki-laki">
+                                    <label for="laki">Laki-laki</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="perempuan" name="gender" value="Perempuan">
+                                    <label for="perempuan">Perempuan</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hobi -->
+                        <div class="form-item">
+                            <label>Hobi:</label>
+                            <div class="checkbox-group">
+                                <div>
+                                    <input type="checkbox" id="musik" name="hobi" value="Musik">
+                                    <label for="musik">Musik</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="olahraga" name="hobi" value="Olahraga">
+                                    <label for="olahraga">Olahraga</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="membaca" name="hobi" value="Membaca">
+                                    <label for="membaca">Membaca</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kota -->
+                        <div class="form-item">
+                            <label for="kota">Pilih Kota:</label>
+                            <select id="kota" name="kota" required>
+                                <option value="">-- Pilih Kota --</option>
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Bandung">Bandung</option>
+                                <option value="Surabaya">Surabaya</option>
+                                <option value="Yogyakarta">Yogyakarta</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-submit">Daftar</button>
+                    </form>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h2>Informasi Tambahan</h2>
+                <p>Bagian sidebar dapat berisi tautan, iklan, atau informasi tambahan yang relevan dengan konten utama halaman.</p>
+                <ul class="sidebar-list">
+                    <li><a href="#">Link Penting 1</a></li>
+                    <li><a href="#">Link Penting 2</a></li>
+                    <li><a href="#">Link Penting 3</a></li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Halaman Web Singaperbangsa. Dibuat dengan CSS.</p>
+        </footer>
+    </div>
+</body>
+</html>
